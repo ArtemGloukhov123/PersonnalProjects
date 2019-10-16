@@ -112,7 +112,7 @@ function preload() {
 // and velocities.
 function setup() {
   // Create canvas and set drawing modes
-  createCanvas(680, 580);
+  createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   noStroke();
   fill(fgColor);
@@ -193,18 +193,9 @@ function draw() {
 function handleInput(paddle) {
   // Move the paddle based on its up and down keys
   // If the up key is being pressed
-  if (keyIsDown(paddle.upKey)) {
-    // Move up
-    paddle.vy = -paddle.speed;
-  }
-  // Otherwise if the down key is being pressed
-  else if (keyIsDown(paddle.downKey)) {
-    // Move down
-    paddle.vy = paddle.speed;
-  } else {
-    // Otherwise stop moving
-    paddle.vy = 0;
-  }
+ if(mouseIsPressed) {
+   rightPaddle.y = mouseY;
+ }
 }
 
 // updatePositions()
